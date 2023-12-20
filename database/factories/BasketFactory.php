@@ -23,9 +23,10 @@ class BasketFactory extends Factory
         do {
             $user_id = User::all()->random()->id;
             $item_id = Product::all()->random()->item_id;
-            $list = Basket::where('user_id', $user_id)->where('item_id', $item_id)->first();
+            
+            $basket_list = Basket::where('user_id', $user_id)->where('item_id', $item_id)->get();
             $repeats--;
-        } while ($repeats >= 0 && $list);
+        } while ($repeats >= 0 && count($basket_list) > 0);
  
         return [
             'user_id' => $user_id,
