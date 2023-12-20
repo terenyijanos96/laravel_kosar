@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\ProductType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'type_id' => ProductType::all()->random()->id,
+            'date' => fake('hu_HU')->date(),
         ];
     }
 }
