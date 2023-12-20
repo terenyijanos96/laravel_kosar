@@ -18,7 +18,7 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'type_id' => ProductType::all()->random()->id,
+            'type_id' => ProductType::all()->random()->type_id,
             'date' => fake('hu_HU')->date(),
         ];
     }
